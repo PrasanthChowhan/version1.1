@@ -1,0 +1,207 @@
+:root {
+  --primary-color: #388ae8;
+  --seconday-color: #38e7e8;
+  --max-width: 990px;
+  font-family: "Sora", sans-serif;
+}
+
+* {
+  margin: 0px;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.wrap {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+header {
+  display: flex;
+  justify-content: end;
+  border: 1px solid;
+  padding: 1rem;
+  align-items: center;
+  align-content: center;
+}
+header .logo {
+  font-size: clamp(0.6rem, 2.5vw, 0.8rem);
+  margin-right: auto;
+  cursor: pointer;
+}
+header .logo span {
+  color: var(--primary-color);
+}
+header .header-right {
+  display: flex;
+  align-items: center;
+}
+header .header-right .search {
+  display: block;
+}
+header ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  padding-inline: 20px;
+}
+header ul li {
+  position: relative;
+}
+header ul li a {
+  text-decoration: none;
+  font-weight: 400;
+  transition-duration: 250ms;
+  color: black;
+}
+header ul li a::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: var(--primary-color);
+  top: -2px;
+  left: 0;
+  transform: scaleX(0);
+  transition-duration: 300ms;
+}
+header ul li a:hover::after {
+  transform: scaleX(1);
+}
+
+.hero {
+  display: grid;
+  border: 1px solid red;
+  grid-template-columns: 1fr 1fr;
+}
+.hero > * {
+  border: 2px solid black;
+}
+.hero .hero-right > img {
+  display: block;
+  max-width: 100%;
+}
+.hero .hero-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+.category-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  border: 1px solid red;
+  text-align: center;
+}
+.category-container > * {
+  border: 2px solid green;
+}
+.category-container .category-title {
+  grid-column: 1/-1;
+}
+.category-container .card {
+  display: grid;
+  max-width: 274px;
+}
+.category-container .card > * {
+  border: 2px solid gray;
+}
+.category-container .card .card-img img {
+  display: inline-block;
+  max-width: 100%;
+  height: 276px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+@media (max-width: 640px) {
+  header .header-right {
+    display: none;
+  }
+  header .mobileMenu {
+    --width: 1rem;
+    --height: 0.75rem;
+    --line-height: 2px;
+    width: var(--width);
+    height: var(--height);
+    position: fixed;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+  }
+  header .mobileMenu .menu-lines {
+    width: 100%;
+    height: var(--line-height);
+    background-color: black;
+    border-radius: 20px;
+    transition-duration: 300ms;
+  }
+  header .mobileMenu .menu-lines::after, header .mobileMenu .menu-lines::before {
+    content: "";
+    width: 100%;
+    height: var(--line-height);
+    background-color: black;
+    border-radius: 20px;
+    position: absolute;
+  }
+  header .mobileMenu .menu-lines::after {
+    transform: translateY(calc(var(--height) / 2));
+  }
+  header .mobileMenu .menu-lines::before {
+    transform: translateY(calc(var(--height) / -2));
+  }
+  header .mobileMenu.close .menu-lines {
+    z-index: 10;
+    background-color: transparent;
+  }
+  header .mobileMenu.close .menu-lines::after {
+    transform: rotate(45deg);
+  }
+  header .mobileMenu.close .menu-lines::before {
+    transform: rotate(-45deg);
+  }
+  header .header-right.active {
+    display: block;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.514);
+    -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(12px);
+    inset: 0 0 0 30vw;
+    padding-top: 30vh;
+    padding-left: 2rem;
+  }
+  header .header-right.active ul {
+    padding: 0;
+    flex-direction: column;
+    font-size: 1.25rem;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero .hero-right {
+    grid-row: 1/span 2;
+    grid-column: 1/span 2;
+    z-index: -1;
+  }
+  .hero .hero-right > img {
+    display: block;
+    max-width: 100%;
+    opacity: 0.4;
+  }
+  .hero .hero-left {
+    grid-row: 1/span 2;
+    grid-column: 1/span 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}/*# sourceMappingURL=style.css.map */
