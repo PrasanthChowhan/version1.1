@@ -196,9 +196,9 @@ header {
       height: minmax(33vh, 450px);
       position: relative;
       padding: 0 5px;
-      overflow: hidden;      
-        border: 1px solid green;
-      
+      overflow: hidden;
+      border: 1px solid green;
+
       .post-img {
         max-height: 200px;
         object-fit: cover;
@@ -210,8 +210,8 @@ header {
           max-width: 100%;
         }
       }
-      //label section 
-      .post-label{
+      //label section
+      .post-label {
         display: flex;
         flex-direction: row;
         gap: 2px;
