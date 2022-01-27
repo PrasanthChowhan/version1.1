@@ -356,10 +356,11 @@ header ul li a:hover::after {
     flex-direction: column;
     gap: 20px;
     overflow-x: hidden;
-    transition: inset 500ms ease-in-out;
+    transition: translate 500ms ease-in-out;
+    translate: 100%;
     position: fixed;
     background-color: #34779e;
-    inset: 0 0 0 100vw;
+    inset: 0 0 0 30vw;
     padding-top: 25vh;
     padding-left: 2rem;
     z-index: 10;
@@ -423,7 +424,7 @@ header ul li a:hover::after {
     transform: rotate(-45deg) translate(35px, 35px);
   }
   header .header-right.active {
-    inset: 0 0 0 30vw;
+    translate: 0;
   }
 
   .hero .hero-right {

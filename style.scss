@@ -4,7 +4,7 @@
   --max-width: 990px;
   font-family: "Sora", sans-serif;
 }
-html{
+html {
   scroll-behavior: smooth;
 }
 * {
@@ -87,9 +87,8 @@ header {
     }
   }
 }
-// Back to top 
-.back-to-top{
-
+// Back to top
+.back-to-top {
 }
 
 // _________________________Hero -section________________________________\\
@@ -415,8 +414,8 @@ header {
       flex-direction: column;
       gap: 20px;
       overflow-x: hidden;
-      transition: inset 500ms ease-in-out;
-      
+      transition: translate 500ms ease-in-out;
+      translate: (100%);
 
       position: fixed;
       background-color: rgb(52, 119, 158);
@@ -425,7 +424,7 @@ header {
         backdrop-filter: blur(12px);
       }
 
-      inset: 0 0 0 100vw; // problem prone area
+      inset: 0 0 0 30vw; // problem prone area
       padding-top: 25vh;
       padding-left: 2rem;
       z-index: 10;
@@ -437,8 +436,6 @@ header {
         justify-content: center;
         align-items: center;
       }
-      
-     
     }
     .mobileMenu {
       // container defining height and width of menu icon
@@ -487,10 +484,9 @@ header {
         z-index: 14;
         transform: translateX(-50px);
         background: transparent;
-       
+
         &::after {
-          transform: rotate(45deg) translate(35px,-35px);
-          
+          transform: rotate(45deg) translate(35px, -35px);
         }
         &::before {
           transform: rotate(-45deg) translate(35px, 35px);
@@ -499,9 +495,7 @@ header {
     }
 
     .header-right.active {
-      
-      inset: 0 0 0 30vw;
-      
+      translate: (0);
     }
   }
 
