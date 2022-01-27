@@ -9,12 +9,26 @@
   padding: 0;
   box-sizing: border-box;
   outline: none;
+  border: none;
 }
 .wrap {
   max-width: var(--max-width);
   margin: 0 auto;
 }
-
+.title {
+  position: relative;
+  h1 {
+    font-size: clamp(1.2rem, 3vw, 2rem);
+  }
+}
+.title::after {
+  content: "";
+  position: absolute;
+  width: 3.5em;
+  height: 0.2em;
+  background: var(--seconday-color);
+  border-radius: 4em;
+}
 //-----------------------------     Header  -------------------------------------\\
 header {
   display: flex;
@@ -110,9 +124,6 @@ header {
     padding: 1rem 0;
     gap: 1rem;
 
-    .category-title {
-    }
-
     // deals with three cards
 
     .category-cards-three {
@@ -139,7 +150,8 @@ header {
           justify-content: center;
           align-items: center;
 
-          font-size: clamp(0.4rem, 2vw, 1rem);
+          font-size: clamp(0.3rem, 2vw, 1rem);
+          color: rgb(0, 0, 0);
 
           position: absolute;
           bottom: 1%;
@@ -184,40 +196,202 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-
+  padding-top: 1rem;
   gap: 1rem;
-  border: 1px solid red;
 
   .blogpost-container {
     display: grid;
+    min-height: 0;
+    gap: 3vmin;
+
     grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-    gap: 6vmin;
+
     .blog {
-      height: minmax(33vh, 450px);
+      max-height: min(50vh, 450px);
       position: relative;
-      padding: 0 5px;
+
+      // border: 2px solid red;
+      // background-color: rgba(0, 0, 0, 0.1);
+      border-radius: 16px;
+      box-shadow: 0 0 10px 1px rgba(70, 64, 64, 0.5);
+      border-bottom: 2px solid black;
+      outline-offset: 2px;
+
       overflow: hidden;
-      border: 1px solid green;
 
       .post-img {
         max-height: 200px;
         object-fit: cover;
         overflow: hidden;
         border-radius: 16px;
+        box-shadow: 0 2px 5px black;
 
         img {
           display: block;
           max-width: 100%;
+          opacity: 9;
         }
       }
       //label section
       .post-label {
         display: flex;
-        flex-direction: row;
-        gap: 2px;
+        gap: 5px;
+        align-items: center;
         position: absolute;
         top: 5px;
         left: 20px;
+
+        font-size: clamp(0.8rem, 2vw, 1rem);
+        font-weight: 600;
+
+        background-color: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(205px);
+        padding: 0.25em 0.5em;
+        border-radius: 60px;
+        img {
+          width: 1.5em;
+        }
+      }
+
+      .post-content {
+        position: relative;
+        padding: 0 5px;
+        .post-title {
+          font-size: clamp(0.6rem, 2vw, 1rem);
+          padding: 1em 0 0.5em 0;
+        }
+        .post-description {
+          height: 100%;
+          display: block;
+          position: relative;
+          text-overflow: clip;
+          padding: 0.5rem 0rem;
+          font-size: clamp(0.7rem, 2vw, 0.9rem);
+
+          // &::after {
+          //   content: "";
+          //   position: absolute;
+          //   bottom: 0;
+          //   background: linear-gradient(
+          //     to bottom,
+          //     rgba(255, 255, 255, 0),
+          //     rgb(250, 255, 251)
+          //   );
+          //   width: 100%;
+          //   height: 100%;
+          // }
+        }
+      }
+      .readmore {
+        font-size: clamp(0.6rem, 2vw, 1rem);
+        position: absolute;
+        bottom: 2%;
+        right: 2.5%;
+        padding: 0.5em 1em;
+        background-color: black;
+        border-radius: 50px;
+        cursor: pointer;
+        a {
+          text-decoration: none;
+          color: white;
+        }
+        &:hover,
+        &:active {
+          background-color: rgba(255, 255, 255, 0.993);
+          a {
+            color: black;
+          }
+          border: 0.1em solid black;
+        }
+      }
+    }
+  }
+}
+
+// __________---------____________-Footer section _-----_-____--_____--\\
+
+.footer {
+  max-width: 100vw;
+  background-color: var(--primary-color);
+  margin-top: 2rem;
+  .footer-container {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 0.5fr;
+    font-size: clamp(0.6rem, 2.5vw, 0.8rem);
+    align-items: center;
+
+    p {
+      color: white;
+    }
+    padding: 1rem 0;
+    .left {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      cursor: pointer;
+      span {
+        color: var(--seconday-color);
+      }
+    }
+    .middle {
+      font-size: clamp(0.6rem, 2.5vw, 0.8rem);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5em;
+
+      .signup-description {
+        width: 70%;
+      }
+
+      .signup {
+        display: flex;
+        flex-direction: row;
+        gap: 0.2em;
+        width: 100%;
+        justify-content: center;
+
+        .signupbtn,
+        .signuptxt {
+          padding: 0.5em 0.8em;
+          border: none;
+        }
+
+        .signupbtn {
+          font-size: clamp(0.6rem, 2.5vw, 0.8rem);
+          background-color: chartreuse;
+          border-radius: 0.4em 0 0 0.4em;
+          cursor: pointer;
+          &:active {
+            background-color: black;
+            color: white;
+          }
+        }
+        .signuptxt {
+          // max-width: min(200px, 80vw);
+          width: 60%;
+          border-radius: 0 0.4em 0.4em 0;
+        }
+      }
+    }
+    .right {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      gap: 1em;
+
+      a img {
+        display: block;
+        transition: transform 800ms ease-out;
+        &:hover {
+          transform: rotate(360deg);
+        }
+        &:active {
+          background-color: gray;
+        }
       }
     }
   }
@@ -238,7 +412,8 @@ header {
 
       width: var(--width);
       height: var(--height);
-      position: fixed;
+      
+      
 
       cursor: pointer;
 
@@ -274,7 +449,7 @@ header {
     }
     .mobileMenu.close {
       .menu-lines {
-        z-index: 11;
+        z-index: 14;
         background-color: transparent;
         &::after {
           transform: rotate(45deg);
@@ -292,8 +467,12 @@ header {
       gap: 20px;
 
       position: fixed;
-      background-color: rgba(0, 0, 0, 0.514);
-      backdrop-filter: blur(12px);
+     background-color: rgb(52, 119, 158);
+      @supports (backdrop-filter: blur(12px)) {
+        background-color: rgba(0, 0, 0, 0.514);
+        backdrop-filter: blur(12px);
+      }
+
       inset: 0 0 0 30vw; // problem prone area
       padding-top: 25vh;
       padding-left: 2rem;
@@ -330,6 +509,33 @@ header {
       flex-direction: column;
       justify-content: center;
       align-items: center;
+    }
+  }
+
+  //  >>>>>>>>>>>>>>Blog section<<<<<<<<<<\\
+  .blogpost {
+    .blogpost-container {
+      grid-template-columns: none;
+    }
+  }
+
+  // ************Footer section **********\\
+  .footer {
+    .footer-container {
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas:
+        "logo social"
+        "signup signup";
+      row-gap: 2em;
+    }
+    .left {
+      grid-area: logo;
+    }
+    .middle {
+      grid-area: signup;
+    }
+    .right {
+      grid-area: social;
     }
   }
 }
