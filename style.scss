@@ -4,6 +4,9 @@
   --max-width: 990px;
   font-family: "Sora", sans-serif;
 }
+html{
+  scroll-behavior: smooth;
+}
 * {
   margin: 0px;
   padding: 0;
@@ -225,7 +228,7 @@ header {
         overflow: hidden;
         border-radius: 16px;
         box-shadow: 0 2px 5px black;
-        margin: 0 5px;
+        margin: 5px 5px 0 5px;
         img {
           display: block;
 
