@@ -351,33 +351,7 @@ header ul li a:hover::after {
 
 @media (max-width: 640px) {
   header .header-right {
-    display: block;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    overflow-x: hidden;
-    transition: translate 500ms ease-in-out;
-    translate: 100%;
-    position: fixed;
-    background-color: #34779e;
-    inset: 0 0 0 30vw;
-    padding-top: 25vh;
-    padding-left: 2rem;
-    z-index: 10;
-  }
-  @supports ((-webkit-backdrop-filter: blur(12px)) or (backdrop-filter: blur(12px))) {
-    header .header-right {
-      background-color: rgba(0, 0, 0, 0.514);
-      -webkit-backdrop-filter: blur(12px);
-              backdrop-filter: blur(12px);
-    }
-  }
-  header .header-right ul {
-    padding: 0;
-    flex-direction: column;
-    font-size: 1.25rem;
-    justify-content: center;
-    align-items: center;
+    display: none;
   }
   header .mobileMenu {
     --width: 1rem;
@@ -424,7 +398,30 @@ header ul li a:hover::after {
     transform: rotate(-45deg) translate(35px, 35px);
   }
   header .header-right.active {
-    translate: 0;
+    display: block;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: fixed;
+    background-color: #34779e;
+    inset: 0 0 0 30vw;
+    padding-top: 25vh;
+    padding-left: 2rem;
+    z-index: 10;
+  }
+  @supports ((-webkit-backdrop-filter: blur(12px)) or (backdrop-filter: blur(12px))) {
+    header .header-right.active {
+      background-color: rgba(0, 0, 0, 0.514);
+      -webkit-backdrop-filter: blur(12px);
+              backdrop-filter: blur(12px);
+    }
+  }
+  header .header-right.active ul {
+    padding: 0;
+    flex-direction: column;
+    font-size: 1.25rem;
+    justify-content: center;
+    align-items: center;
   }
 
   .hero .hero-right {
