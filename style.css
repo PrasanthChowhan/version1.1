@@ -193,7 +193,6 @@ header ul li a:hover::after {
   position: relative;
   border-radius: 16px;
   box-shadow: 0 0 10px 1px rgba(70, 64, 64, 0.5);
-  border-bottom: 2px solid black;
   outline-offset: 2px;
   overflow: hidden;
 }
@@ -207,6 +206,7 @@ header ul li a:hover::after {
 }
 .blogpost .blogpost-container .blog .post-img img {
   display: block;
+  margin: 0 5px;
   max-width: 100%;
   opacity: 9;
 }
