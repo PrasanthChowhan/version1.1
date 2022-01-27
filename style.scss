@@ -225,10 +225,10 @@ header {
         overflow: hidden;
         border-radius: 16px;
         box-shadow: 0 2px 5px black;
-
+        margin: 0 5px;
         img {
           display: block;
-          margin: 0 5px;
+
           max-width: 100%;
           opacity: 9;
         }
@@ -413,8 +413,6 @@ header {
 
       width: var(--width);
       height: var(--height);
-      
-      
 
       cursor: pointer;
 
@@ -468,7 +466,7 @@ header {
       gap: 20px;
 
       position: fixed;
-     background-color: rgb(52, 119, 158);
+      background-color: rgb(52, 119, 158);
       @supports (backdrop-filter: blur(12px)) {
         background-color: rgba(0, 0, 0, 0.514);
         backdrop-filter: blur(12px);
