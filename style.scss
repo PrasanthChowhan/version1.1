@@ -4,7 +4,7 @@
   --max-width: 990px;
   font-family: "Sora", sans-serif;
 }
-html{
+html {
   scroll-behavior: smooth;
 }
 * {
@@ -87,11 +87,39 @@ header {
     }
   }
 }
-// Back to top 
-.back-to-top{
-
+//*************************************** Search ******************************************
+.search {
+  position: relative;
+  cursor: pointer;
+  .search-container {
+    position: absolute;
+    display: flex;
+    gap: 0.2em;
+    border-radius: 1rem;
+   top: 151%;
+    right: -22%;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 500ms;
+    box-shadow: 1px 1px 4px gray;
+    
+    .search-text,
+    .search-button {
+      
+      font-size: clamp(0.6rem, 2vw, 1.2rem);
+      padding: 0.25em 0.5em;      
+    }
+    .search-button{
+      background-color: rgba(128, 255, 0, 0.829);
+    }
+    
+    
+  }
+  .search-container.click{
+    opacity: 1;
+    pointer-events: auto;
+  }
 }
-
 // _________________________Hero -section________________________________\\
 .hero {
   display: grid;
@@ -411,8 +439,6 @@ header {
   header {
     .header-right {
       display: none;
-      
-     
     }
     .mobileMenu {
       // container defining height and width of menu icon
@@ -461,10 +487,9 @@ header {
         z-index: 14;
         transform: translateX(-50px);
         background: transparent;
-       
+
         &::after {
-          transform: rotate(45deg) translate(35px,-35px);
-          
+          transform: rotate(45deg) translate(35px, -35px);
         }
         &::before {
           transform: rotate(-45deg) translate(35px, 35px);
@@ -473,13 +498,10 @@ header {
     }
 
     .header-right.active {
-      
-      
       display: block;
       display: flex;
       flex-direction: column;
       gap: 20px;
-      
 
       position: fixed;
       background-color: rgb(52, 119, 158);

@@ -91,6 +91,35 @@ header ul li a:hover::after {
   transform: scaleX(1);
 }
 
+.search {
+  position: relative;
+  cursor: pointer;
+}
+.search .search-container {
+  position: absolute;
+  display: flex;
+  gap: 0.2em;
+  border-radius: 1rem;
+  top: 151%;
+  right: -22%;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 500ms;
+  box-shadow: 1px 1px 4px gray;
+}
+.search .search-container .search-text,
+.search .search-container .search-button {
+  font-size: clamp(0.6rem, 2vw, 1.2rem);
+  padding: 0.25em 0.5em;
+}
+.search .search-container .search-button {
+  background-color: rgba(128, 255, 0, 0.829);
+}
+.search .search-container.click {
+  opacity: 1;
+  pointer-events: auto;
+}
+
 .hero {
   display: grid;
   grid-template-columns: 1fr 1fr;
