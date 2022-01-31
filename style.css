@@ -57,6 +57,7 @@ header .logo span {
 header .header-right {
   display: flex;
   align-items: center;
+  position: relative;
 }
 header .header-right .search {
   display: block;
@@ -92,30 +93,33 @@ header ul li a:hover::after {
 }
 
 .search {
-  position: relative;
   cursor: pointer;
 }
-.search .search-container {
+
+.search-container {
   position: absolute;
   display: flex;
   gap: 0.2em;
   border-radius: 1rem;
-  top: 151%;
-  right: -22%;
+  top: 0;
+  right: 0;
   opacity: 0;
   pointer-events: none;
   transition: opacity 500ms;
   box-shadow: 1px 1px 4px gray;
+  top: 50px;
+  right: -10px;
 }
-.search .search-container .search-text,
-.search .search-container .search-button {
+.search-container .search-text,
+.search-container .search-button {
   font-size: clamp(0.6rem, 2vw, 1.2rem);
   padding: 0.25em 0.5em;
 }
-.search .search-container .search-button {
+.search-container .search-button {
   background-color: rgba(128, 255, 0, 0.829);
 }
-.search .search-container.click {
+
+.search-container.active {
   opacity: 1;
   pointer-events: auto;
 }
@@ -167,7 +171,8 @@ header ul li a:hover::after {
   height: min(30vw, 250px);
   position: relative;
   border-radius: 10px;
-  box-shadow: 1px 1px 3px black;
+  box-shadow: 1px 1px 5px #3b3a3a;
+  border: none;
 }
 .category .category-container .category-cards-three .card .card-content {
   display: flex;
@@ -381,6 +386,9 @@ header ul li a:hover::after {
 @media (max-width: 640px) {
   header .header-right {
     display: none;
+  }
+  header .header-right .search-container {
+    inset: 40vh 10vw auto auto;
   }
   header .mobileMenu {
     --width: 1rem;

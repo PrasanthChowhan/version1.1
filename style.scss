@@ -51,6 +51,7 @@ header {
   .header-right {
     display: flex;
     align-items: center;
+    position: relative;
     .search {
       display: block;
     }
@@ -89,36 +90,34 @@ header {
 }
 //*************************************** Search ******************************************
 .search {
-  position: relative;
   cursor: pointer;
-  .search-container {
+  
+}
+.search-container {
     position: absolute;
     display: flex;
     gap: 0.2em;
     border-radius: 1rem;
-   top: 151%;
-    right: -22%;
+    top: 0;
+    right: 0;
     opacity: 0;
     pointer-events: none;
     transition: opacity 500ms;
     box-shadow: 1px 1px 4px gray;
-    
+    top: 50px;
+    right: -10px;
     .search-text,
     .search-button {
-      
       font-size: clamp(0.6rem, 2vw, 1.2rem);
-      padding: 0.25em 0.5em;      
+      padding: 0.25em 0.5em;
     }
-    .search-button{
+    .search-button {
       background-color: rgba(128, 255, 0, 0.829);
     }
-    
-    
   }
-  .search-container.click{
-    opacity: 1;
-    pointer-events: auto;
-  }
+.search-container.active {
+  opacity: 1;
+  pointer-events: auto;
 }
 // _________________________Hero -section________________________________\\
 .hero {
@@ -178,7 +177,8 @@ header {
 
         // styling card
         border-radius: 10px;
-        box-shadow: 1px 1px 3px black;
+        box-shadow: 1px 1px 5px rgb(59, 58, 58);
+        border: none;
 
         .card-content {
           display: flex;
@@ -439,6 +439,10 @@ header {
   header {
     .header-right {
       display: none;
+      .search-container{
+       inset: 40vh 10vw auto auto ;
+      
+      }
     }
     .mobileMenu {
       // container defining height and width of menu icon
